@@ -1,0 +1,33 @@
+{
+  "name": "vue-slide-for-more",
+  "version": "1.0.0",
+  "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, also provide refresh function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/webpack  --progress --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livelybone/vue-slide-for-more.git"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "slide",
+    "loadmore",
+    "mobile"
+  ],
+  "author": "livelybone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/livelybone/vue-slide-for-more/issues"
+  },
+  "homepage": "https://github.com/livelybone/vue-slide-for-more#readme",
+  "devDependencies": {
+    "vue-loader": "^15.2.4",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.12.0",
+    "webpack-command": "^0.2.1"
+  }
+}

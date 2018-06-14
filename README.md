@@ -104,7 +104,7 @@ new Vue({
 | `wrapClass`           | `String`                                  | none              | Used to set the class of wrap. When it Used, the prop 'baseSize' will be ignored, and you must rewrite all the style of the component module in global |
 | `tipHeight`           | `String`                                  | `40px`            | Used to set the height of both `div.slide-for-more-top-tip-wrap` which shows refreshing and `div.slide-for-more-tip-wrap` which shows loading more |
 | `contentMinHeight`    | `String`                                  | none              | Used to set the min-height of `div.slide-for-more-content` |
-| `baseSize`            | `String`(`/\d(rem&#124;px&#124;em)$/`)    | `100px`           | Used to set size of content shadow and line-height of tip |
+| `baseSize`            | `String`(/\d(rem&#124;px&#124;em)$/)    | `100px`           | Used to set size of content shadow and line-height of tip |
 | `slideValue`          | `Number`                                  | `100` (px)        | Used to set min value of slide distance to trigger events |
 | `isSearching`         | `Boolean`                                 | `false`           | If it's true, showing the loading text |
 

@@ -2,7 +2,7 @@
   "name": "vue-slide-for-more",
   "version": "1.0.0",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, also provide refresh function",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack  --progress --mode production"

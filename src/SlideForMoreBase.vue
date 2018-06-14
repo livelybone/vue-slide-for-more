@@ -1,5 +1,6 @@
 <template>
-    <div :class="wrapClass" :style="style.baseWrap" @touchstart="start" @touchend="end" @touchmove="move">
+    <div class="slide-for-more-base-wrap" :class="wrapClass" :style="style.baseWrap" @touchstart="start" @touchend="end"
+         @touchmove="move">
         <div class="slide-for-more-top-tip-wrap"
              :style="style.tipWrap('top',{height:slideType==='slideDown'?tipHeight:-height+'px'},slideType==='slideDown'?style.transitionStyle:'')">
             <slot name="topTip"/>
@@ -64,12 +65,12 @@
     props: {
       baseSize: {
         validator(val) {
-          return !val || /\d(rem|px|em)/.test(val)
+          return !val || /\d(rem|px|em)$/.test(val)
         },
         default: '100px'
       },
       wrapClass: String, // 一旦设置，内置样式全部失效，需要重写所有样式
-      slideHeight: {
+      slideValue: {
         default: 100,
         validator(val) {
           return typeof val === 'number' && val > 0;
@@ -94,14 +95,14 @@
     },
     computed: {
       distance() {
-        return this.slideHeight * this.dpr
+        return this.slideValue * this.dpr
       },
       slideType() {
         return this.isSearching ? this._slideType : ''
       },
       style() {
         return style(this.baseSize, this.wrapClass)
-      }
+      },
     },
     watch: {},
     methods: {

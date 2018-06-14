@@ -1,12 +1,14 @@
 <template>
     <slide-for-more-base
             :class="wrapClass"
-            :slideHeight="slideHeight"
+            :slideValue="slideValue"
             :isSearching="isSearching"
             :contentMinHeight="contentMinHeight"
-            baseSize="1rem"
-            tipHeight=".4rem"
+            :baseSize="baseSize"
+            :tipHeight="tipHeight"
+            @refresh="$emit('refresh')"
             @slideUp="$emit('slideUp')"
+            @loadMore="$emit('loadMore')"
             @slideDown="$emit('slideDown')">
         <div class="slide-for-more-top-tip" :style="style.tip" slot="topTip">
             <template v-if="isSearching">
@@ -30,10 +32,25 @@
   export default {
     name: 'SlideForMore',
     props: {
-      wrapClass: String,
-      slideHeight: Number,
+      wrapClass: String, // 一旦设置，内置样式全部失效，需要重写所有样式
+      slideValue: {
+        default: 100,
+        validator(val) {
+          return typeof val === 'number' && val > 0;
+        }
+      },
       isSearching: Boolean,
       contentMinHeight: String,
+      baseSize: {
+        validator(val) {
+          return !val || /\d(rem|px|em)$/.test(val)
+        },
+        default: '100px'
+      },
+      tipHeight: {
+        type: String,
+        default: '40px',
+      },
     },
     data() {
       return {

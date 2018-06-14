@@ -5,7 +5,7 @@ Provide refresh function too.
 
 You can rewrite all style by set prop wrapClass. the css file content maybe like:
 ```scss
-  .wrapClass {
+  .[wrapClass] {
     ...
     
     .slide-for-more-top-tip-wrap {
@@ -37,7 +37,7 @@ You can rewrite all style by set prop wrapClass. the css file content maybe like
 
 ## Installation
 ```bash
-npm install vue-slide-for-more
+npm install vue-slide-for-more --save-dev
 ```
 
 ## Register the component
@@ -64,22 +64,6 @@ new Vue({
 
 ## Apply
 
-### SlideForMore
-```html
-// template
-<template>
-    <SlideForMore 
-        :wrapClass="''" 
-        tipHeight="40px"
-        contentMinHeight="100vh"
-        baseSize="100px" 
-        :slideValue="100" 
-        :isSearching="false" >
-        <div v-for="el in list">{{el}}</div>
-    </SlideForMore>
-</template>
-```
-
 ### SlideForMoreBase
 ```html
 // template
@@ -90,11 +74,27 @@ new Vue({
         contentMinHeight="100vh"
         baseSize="100px" 
         :slideValue="100" 
-        :isSearching="isSearching" >
+        :isSearching="isSearching">
         <div class="tip-tip" slot="topTip">{{isSearching?'正在刷新...':'刷新'}}</div>
         <div v-for="el in list">{{el}}</div>
         <div class="bottom-tip" slot="tip">{{isSearching?'正在查询...':'获取更多'}}</div>
  </SlideForMoreBase>
+</template>
+```
+
+### SlideForMore
+```html
+// template. SlideForMore is a simple packaging of SlideForMoreBase
+<template>
+    <SlideForMore 
+        :wrapClass="''" 
+        tipHeight="40px"
+        contentMinHeight="100vh"
+        baseSize="100px" 
+        :slideValue="100" 
+        :isSearching="false">
+        <div v-for="el in list">{{el}}</div>
+    </SlideForMore>
 </template>
 ```
 
@@ -110,6 +110,7 @@ new Vue({
 
 ## Events
 | Name                  | Description                       |
+| --------------------  | --------------------------------- |
 | `refresh`             | Event for refresh                 |
 | `slideUp`             | An alias of `refresh` event       |
 | `loadMore`            | Event for load more               | 

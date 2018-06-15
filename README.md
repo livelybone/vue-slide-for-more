@@ -3,6 +3,8 @@ A vuejs(vue2) component for loading more data when the content was slide to the 
 
 Provide refresh function too.
 
+Repository: https://github.com/livelybone/vue-slide-for-more.git.
+
 You can rewrite all style by set prop `wrapClass`. the css file content maybe like:
 ```scss
   .[wrapClass] {
@@ -106,7 +108,7 @@ new Vue({
 | `contentMinHeight`    | `String`                                  | none              | Used to set the min-height of `div.slide-for-more-content` |
 | `baseSize`            | `String` (/\d(rem&#124;px&#124;em)$/)     | `100px`           | Used to set size of content shadow and line-height of tip |
 | `slideValue`          | `Number`                                  | `100` (px)        | Used to set min value of slide distance to trigger events |
-| `isSearching`         | `Boolean`                                 | `false`           | If it's true, showing the loading text |
+| `isSearching`         | `Boolean`                                 | `false`           | Used to tell the component whether you are searching or not. If you are searching, it will show the loading text. <font color="red">important</font> |
 
 ## Events
 | Name                  | EmittedData           | Description                                       |

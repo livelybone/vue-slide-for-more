@@ -99,7 +99,6 @@ new Vue({
     </SlideForMore>
 </template>
 ```
-
 ## Props
 | Name                  | Type(Validator)                           | DefaultValue      | Description  |
 | --------------------  | ----------------------------------------- | -------------     | ------------ |
@@ -108,7 +107,7 @@ new Vue({
 | `contentMinHeight`    | `String`                                  | none              | Used to set the min-height of `div.slide-for-more-content` |
 | `baseSize`            | `String` (/\d(rem&#124;px&#124;em)$/)     | `100px`           | Used to set size of content shadow and line-height of tip |
 | `slideValue`          | `Number`                                  | `100` (px)        | Used to set min value of slide distance to trigger events |
-| `isSearching`         | `Boolean`                                 | `false`           | Used to tell the component whether you are searching or not. If you are searching, it will show the loading text. <font color="red">important</font> |
+| `isSearching`         | `Boolean`                                 | `false`           | Used to tell the component whether you are searching or not. If you are searching, it will show the loading text. `This is an important prop` |
 
 ## Events
 | Name                  | EmittedData           | Description                                       |

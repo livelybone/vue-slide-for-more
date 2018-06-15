@@ -1,7 +1,5 @@
 # vue-slide-for-more
-A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, supported SSR
-
-Provide refresh function too.
+A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR.
 
 Repository: https://github.com/livelybone/vue-slide-for-more.git.
 

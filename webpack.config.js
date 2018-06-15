@@ -18,10 +18,12 @@ const config = {
     filename: './[name].js',
     library: 'VueSlideForMore',
     libraryTarget: 'umd',
+    globalObject: "this",
   },
   module: {
     rules: [
       {test: /\.vue$/, exclude: /node_modules/, loader: 'vue-loader'},
+      {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: {presets: [['env', {}]]}},
     ]
   },
   plugins: [

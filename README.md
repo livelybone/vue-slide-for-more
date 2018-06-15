@@ -77,7 +77,7 @@ new Vue({
         baseSize="100px" 
         :slideValue="100" 
         :isSearching="isSearching">
-        <div class="tip-tip" slot="topTip">{{isSearching?'正在刷新...':'刷新'}}</div>
+        <div class="top-tip" slot="topTip">{{isSearching?'正在刷新...':'刷新'}}</div>
         <div v-for="el in list">{{el}}</div>
         <div class="bottom-tip" slot="tip">{{isSearching?'正在查询...':'获取更多'}}</div>
  </SlideForMoreBase>

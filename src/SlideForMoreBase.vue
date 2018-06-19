@@ -101,7 +101,7 @@
         return this.isSearching ? this._slideType : ''
       },
       style() {
-        return style(this.baseSize, this.wrapClass)
+        return style(this.baseSize, !this.wrapClass)
       },
     },
     watch: {},

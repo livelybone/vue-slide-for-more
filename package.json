@@ -1,6 +1,6 @@
 {
   "name": "vue-slide-for-more",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/index.js",
   "scripts": {

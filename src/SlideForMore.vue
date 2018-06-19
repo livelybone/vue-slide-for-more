@@ -1,6 +1,6 @@
 <template>
     <slide-for-more-base
-            :class="wrapClass"
+            :wrapClass="wrapClass"
             :slideValue="slideValue"
             :isSearching="isSearching"
             :contentMinHeight="contentMinHeight"

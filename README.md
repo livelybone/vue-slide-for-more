@@ -111,8 +111,8 @@ new Vue({
 | Name                  | EmittedData           | Description                                       |
 | --------------------- | --------------------- | ------------------------------------------------- |
 | `refresh`             | none                  | Event for refresh                                 |
-| `slideUp`             | none                  | An alias of `refresh` event                       |
+| `slideDown`           | none                  | An alias of `refresh` event                       |
 | `loadMore`            | none                  | Event for load more                               | 
-| `slideDown`           | none                  | An alias of `loadMore` event                      |
+| `slideUp`             | none                  | An alias of `loadMore` event                      |
 
 

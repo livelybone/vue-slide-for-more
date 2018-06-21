@@ -1,11 +1,12 @@
 {
   "name": "vue-slide-for-more",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack  --progress --mode production"
+    "build": "./node_modules/.bin/webpack  --progress --mode production",
+    "eslint": "./node_modules/.bin/eslint ./src",
+    "test": "cross-env BABEL_ENV=test karma start --single-run"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,26 @@
   },
   "homepage": "https://github.com/livelybone/vue-slide-for-more#readme",
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.19",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "karma": "^2.0.3",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^3.0.0",
+    "mocha": "^5.2.0",
+    "vue": "^2.5.16",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.12.0",

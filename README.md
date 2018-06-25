@@ -35,6 +35,9 @@ You can rewrite all style by set prop `wrapClass`. the css file content maybe li
   }
 ```
 
+## Demo 
+https://livelybone.github.io/src/vue-slide-for-more
+
 ## Installation
 ```bash
 npm install vue-slide-for-more --save-dev

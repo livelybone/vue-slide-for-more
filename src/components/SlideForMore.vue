@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import SlideForMoreBase from './SlideForMoreBase.vue';
+import SlideForMoreBase from './SlideForMoreBase.vue'
 
 export default {
   name: 'SlideForMore',
@@ -59,8 +59,8 @@ export default {
           color: '#ccc',
         },
       },
-    };
+    }
   },
   components: { SlideForMoreBase },
-};
+}
 </script>

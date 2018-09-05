@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import SlideForMoreBase from '../src/component/SlideForMoreBase.vue';
+import SlideForMoreBase from '../src/components/SlideForMoreBase.vue';
 import { getScroll } from '../src/utils/browser-default';
 
 describe('SlideForMoreBase', () => {

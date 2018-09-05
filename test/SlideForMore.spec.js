@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import SlideForMore from '../src/component/SlideForMore.vue';
+import SlideForMore from '../src/components/SlideForMore.vue';
 
 describe('SlideForMore', () => {
   it('Component Rendered', () => {

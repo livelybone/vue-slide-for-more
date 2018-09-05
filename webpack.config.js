@@ -4,9 +4,9 @@ const fs = require('fs');
 
 function getEntries() {
   const reg = /\.vue$/;
-  return fs.readdirSync(path.resolve(__dirname, './src/component'))
-    .filter(filename => reg.test(filename) && !fs.statSync(path.resolve(__dirname, './src/component', filename)).isDirectory())
-    .map(filename => ({ [filename.replace(reg, '')]: path.resolve(__dirname, './src/component', filename) }));
+  return fs.readdirSync(path.resolve(__dirname, './src/components'))
+    .filter(filename => reg.test(filename) && !fs.statSync(path.resolve(__dirname, './src/components', filename)).isDirectory())
+    .map(filename => ({ [filename.replace(reg, '')]: path.resolve(__dirname, './src/components', filename) }));
 }
 
 const entries = getEntries();

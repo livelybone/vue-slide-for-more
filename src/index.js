@@ -1,5 +1,4 @@
-const SlideForMoreBase = require('./component/SlideForMoreBase.vue').default;
-const SlideForMore = require('./component/SlideForMore.vue').default;
+import SlideForMore from './components/SlideForMore.vue'
+import SlideForMoreBase from './components/SlideForMoreBase.vue'
 
-module.exports.SlideForMoreBase = SlideForMoreBase;
-module.exports.SlideForMore = SlideForMore;
+export { SlideForMoreBase, SlideForMore }

@@ -49,9 +49,9 @@ npm install vue-slide-for-more --save-dev
 import {SlideForMore, SlideForMoreBase} from 'vue-slide-for-more';
 
 // import what you just need
-import SlideForMore from 'vue-slide-for-more/lib/SlideForMore';
+import SlideForMore from 'vue-slide-for-more/lib/umd/SlideForMore';
 // or
-import SlideForMoreBase from 'vue-slide-for-more/lib/SlideForMoreBase';
+import SlideForMoreBase from 'vue-slide-for-more/lib/umd/SlideForMoreBase';
 
 
 // Global register

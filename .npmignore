@@ -14,9 +14,13 @@ yarn-error.log*
 *.sln
 
 webpack.*.js
+rollup.*.js
 /src/
+/index.js
 
+examples/
+test/
+coverage/
+/karma.conf.js
 /.eslintrc.js
-/coverage/
-/test/
-karma.conf.js
+/.eslintignore

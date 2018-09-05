@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import { getScroll } from '../utils/browser-default';
+import { getScroll } from '../utils/browser-default'
 
-const c = (f, baseSize) => `calc(${f} * ${baseSize})`;
+const c = (f, baseSize) => `calc(${f} * ${baseSize})`
 
 const style = (baseSize = '100px', defaultStyle = true) => ({
   baseWrap: defaultStyle ?
@@ -68,7 +68,7 @@ const style = (baseSize = '100px', defaultStyle = true) => ({
   transitionStyle: {
     transition: 'all .5s cubic-bezier(0, 1, 1, 1)', // 请看贝塞尔曲线 https://www.jianshu.com/p/d999f090d333
   },
-});
+})
 
 export default {
   name: 'SlideForMoreBase',
@@ -97,50 +97,50 @@ export default {
       startPointer: null,
       height: 0,
       type: '',
-    };
+    }
   },
   computed: {
     distance() {
-      return Math.abs(this.slideValue);
+      return Math.abs(this.slideValue)
     },
     slideType() {
-      return this.isSearching ? this.type : '';
+      return this.isSearching ? this.type : ''
     },
     style() {
-      const valid = /\d(rem|px|em)$/.test(this.baseSize);
-      return style(this.baseSize, !this.wrapClass && valid);
+      const valid = /\d(rem|px|em)$/.test(this.baseSize)
+      return style(this.baseSize, !this.wrapClass && valid)
     },
   },
   methods: {
     start(ev) {
-      this.isTop = getScroll().top <= 0;
+      this.isTop = getScroll().top <= 0
       this.isBottom = getScroll().top
-        >= document.body.offsetHeight - (window.screen.availHeight * window.devicePixelRatio);
+        >= document.body.offsetHeight - (window.screen.availHeight * window.devicePixelRatio)
       // 上面的表达式有一定误差：手机浏览器可能会有状态栏。
       // 但是如果使用 document.documentElement.clientHeight
       // 有些浏览器（比如UC）到达页面底部的时候
       // window.pageYOffset + document.documentElement.clientHeight 的值会小于 document.body.offsetHeight
       // => window.pageYOffset < document.body.offsetHeight - document.documentElement.clientHeight
       // 导致无法触发 move 和 end
-      this.startPointer = { pageY: ev.changedTouches[0].pageY };
+      this.startPointer = { pageY: ev.changedTouches[0].pageY }
     },
     move(ev) {
-      if ((!this.isBottom && !this.isTop) || this.isSearching) return;
-      const height = this.startPointer.pageY - ev.changedTouches[0].pageY;
-      if ((height > 0 && this.isBottom) || (height < 0 && this.isTop)) this.height = height;
+      if ((!this.isBottom && !this.isTop) || this.isSearching) return
+      const height = this.startPointer.pageY - ev.changedTouches[0].pageY
+      if ((height > 0 && this.isBottom) || (height < 0 && this.isTop)) this.height = height
     },
     end(ev) {
-      if (!this.isBottom && !this.isTop) return;
-      const distance = this.startPointer.pageY - ev.changedTouches[0].pageY;
+      if (!this.isBottom && !this.isTop) return
+      const distance = this.startPointer.pageY - ev.changedTouches[0].pageY
       if (this.distance <= distance && this.isBottom) {
-        this.$emit(this.type = 'slideUp');
-        this.$emit('loadMore');
+        this.$emit(this.type = 'slideUp')
+        this.$emit('loadMore')
       } else if (this.distance <= -distance && this.isTop) {
-        this.$emit(this.type = 'slideDown');
-        this.$emit('refresh');
+        this.$emit(this.type = 'slideDown')
+        this.$emit('refresh')
       }
-      this.height = 0;
+      this.height = 0
     },
   },
-};
+}
 </script>

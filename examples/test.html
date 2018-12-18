@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html style="font-size:625%">
+<head>
+  <meta charset="utf-8">
+  <title>vue-slide-for-more</title>
+  <meta name="keywords" content="livelybone, plugins, vue, vuejs, react, js, javascript, node, php">
+  <meta name="author" content="livelybone(2631541504@qq.com)">
+  <script>
+  function isMobile() {
+    return /Android|webOS|iPhone|iPod|iPad|BlackBerry|Windows Phone/i.test(navigator.userAgent)
+  }
+
+  function scale(noScale) {
+    // canScale用来应付特殊情况
+    if (isMobile()) { // 判断访问环境是 Android|webOS|iPhone|iPod|BlackBerry(移动端)
+      var scale = window.devicePixelRatio || 1
+      var content = 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no'
+      if (!noScale && scale !== 1) {
+        document.documentElement.style.fontSize = 625 * scale + '%'
+        content = 'width=device-width, initial-scale=' + 1 / scale + ', minimum-scale=' + 1 / scale + ', maximum-scale=' + 1 / scale + ', user-scalable=no'
+      }
+      var meta = document.createElement('meta')
+      meta.setAttribute('name', 'viewport')
+      meta.setAttribute('content', content)
+      document.head.appendChild(meta)
+    }
+  }
+
+  scale(/noScale/i.test(location.href))
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="../lib/umd/index.js"></script>
+  <link href="../lib/css/index.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    font-size: .12rem;
+  }
+
+  .item {
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    background: #fff;
+  }
+
+  .item:nth-child(2n) {
+    background: #3DBD7D;
+    color: #fff;
+  }
+
+  .tip-wrap {
+    padding: 30vh 0 0;
+  }
+
+  .tip {
+    padding: .1rem 0;
+    text-align: center;
+    font-size: .12rem;
+    color: #999;
+  }
+
+  .slide-for-more-base-wrap {
+    height: 50vh;
+  }
+
+  .slide-for-more-content {
+    min-height: 100vh;
+  }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript">
+new Vue({
+  el: '#app',
+  template: '<slide-for-more v-if="isMobile()" tipHeight=".4rem" :isSearching="isSearching" @refresh="refresh" @loadMore="loadMore"><div v-for="(c, i) in list" :key="i" class="item">{{c}}</div></slide-for-more><div v-else class="tip-wrap"><p class="tip">请使用移动端浏览器或者 chrome devtools 查看</p><p class="tip">Please see it at mobile browser of chrome devtools.</p></div>',
+  data: function () {
+    return {
+      list: ['content', 'content', 'content', 'content'],
+      isSearching: false,
+    }
+  },
+  methods: {
+    refresh: function () {
+      this.search((function () {
+        this.list = this.list.slice(0, 4)
+      }).bind(this))
+    },
+    loadMore: function () {
+      this.search((function () {
+        this.list.push('content')
+      }).bind(this))
+    },
+    search: function (cb) {
+      this.isSearching = true
+      setTimeout((function () {
+        cb()
+        this.isSearching = false
+      }).bind(this), 1000)
+    },
+    isMobile: isMobile
+  },
+  components: { 'slide-for-more': VueSlideForMore.SlideForMore }
+})
+</script>
+</body>
+</html>

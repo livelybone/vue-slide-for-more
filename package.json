@@ -1,12 +1,13 @@
 {
   "name": "vue-slide-for-more",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
   "unpkg": "./lib/umd/index.js",
   "scripts": {
-    "build": "rimraf ./lib && rollup -c",
+    "build:css": "node-sass ./src/css/index.scss ./lib/css/index.css --output-style compressed",
+    "build": "rimraf ./lib && npm run build:css && rollup -c",
     "eslint": "eslint ./src/index.vue",
     "test": "cross-env BABEL_ENV=test karma start --single-run"
   },
@@ -35,6 +36,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -60,5 +62,12 @@
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.12.0",
     "webpack-command": "^0.2.1"
+  },
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
   }
 }

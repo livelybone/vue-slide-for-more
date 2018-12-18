@@ -7,6 +7,9 @@ const baseConf = require('./rollup.config.base')
 
 const formats = ['es', 'umd']
 
+fs.copyFileSync(path.resolve(__dirname, './src/css/index.scss'), path.resolve(__dirname, './lib/css/index.scss'))
+console.log('>> css file copy successful')
+
 function getEntries() {
   const reg = /\.vue$/
   return fs.readdirSync(path.resolve(__dirname, './src/components'))
@@ -25,16 +28,12 @@ const conf = entry => Object.assign({}, baseConf, {
     format,
     name: entry.name === 'index' ? 'VueSlideForMore' : entry.name,
   })),
-  external: [],
-  plugins: Object.assign(
-    [],
-    baseConf.plugins,
-    [(entry.needUglify !== false && uglify())],
-  ),
+  external: [''],
+  plugins: baseConf.plugins.concat([(entry.needUglify !== false && uglify())]),
 })
 
 export default [
-  { name: 'index', filename: './src/index.js', formats: ['es'], needUglify: false },
+  { name: 'index', filename: './src/index.js', formats: ['es'], needUglify: false, external: true },
   { name: 'index', filename: './src/index.js', formats: ['umd'] },
   ...getEntries(),
 ].map(conf)

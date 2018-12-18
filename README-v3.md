@@ -8,19 +8,47 @@
 
 A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR.
 
-## repository
-https://github.com/livelybone/vue-slide-for-more.git
+Repository: https://github.com/livelybone/vue-slide-for-more.git.
+
+You can rewrite all style by set prop `wrapClass`. the css file content maybe like:
+```scss
+  .[wrapClass] {
+    ...
+    
+    .slide-for-more-top-tip-wrap {
+      /* The refresh tip wrap style */
+      ...
+      
+      .slide-for-more-top-tip {
+        /* The refresh tip wrap style, in SlideForMore module */
+        ...
+      }
+    }
+    
+    .slide-for-more-content {
+      /* The content wrap style */
+      ...
+    }
+        
+    .slide-for-more-tip-wrap {
+      /* The loadMore tip wrap style */
+      ...
+      
+      .slide-for-more-tip {
+        /* The loadMore tip wrap style, in SlideForMore module */
+        ...
+      }
+    }
+  }
+```
 
 ## Demo 
 https://livelybone.github.io/vue/vue-slide-for-more
 
 ## Installation
 ```bash
-npm i vue-slide-for-more -S
+npm install vue-slide-for-more --save-dev
 ```
-
-## Global name
-`VueBtn`
 
 ## Register the component
 ```javascript
@@ -41,12 +69,7 @@ Vue.component('slide-for-more-base', SlideForMoreBase);
 new Vue({
   components:{SlideForMore, SlideForMoreBase}
 })
-```
 
-Use in html, see what your can use in [CDN: unpkg](https://unpkg.com/vue-slide-for-more/lib/umd/)
-```html
-<-- use what you want -->
-<script src="https://unpkg.com/vue-slide-for-more/lib/umd/<--module-->.js"></script>
 ```
 
 ## Apply
@@ -56,7 +79,10 @@ Use in html, see what your can use in [CDN: unpkg](https://unpkg.com/vue-slide-f
 // template
 <template>
     <SlideForMoreBase
+        :wrapClass="''" 
         tipHeight="40px"
+        contentMinHeight="100vh"
+        baseSize="100px" 
         :slideValue="100" 
         :isSearching="isSearching">
         <div class="top-tip" slot="topTip">{{isSearching?'正在刷新...':'刷新'}}</div>
@@ -71,7 +97,10 @@ Use in html, see what your can use in [CDN: unpkg](https://unpkg.com/vue-slide-f
 // template. SlideForMore is a simple packaging of SlideForMoreBase
 <template>
     <SlideForMore 
+        :wrapClass="''" 
         tipHeight="40px"
+        contentMinHeight="100vh"
+        baseSize="100px" 
         :slideValue="100" 
         :isSearching="false">
         <div v-for="el in list">{{el}}</div>
@@ -81,7 +110,10 @@ Use in html, see what your can use in [CDN: unpkg](https://unpkg.com/vue-slide-f
 ## Props
 | Name                  | Type                                      | DefaultValue      | Description  |
 | --------------------  | ----------------------------------------- | -------------     | ------------ |
+| `wrapClass`           | `String`                                  | none              | Used to set the class of wrap. When it Used, the prop 'baseSize' will be ignored, and you must rewrite all the style of the component module in global |
 | `tipHeight`           | `String`                                  | `40px`            | Used to set the height of both `div.slide-for-more-top-tip-wrap` which shows refreshing and `div.slide-for-more-tip-wrap` which shows loading more |
+| `contentMinHeight`    | `String`                                  | none              | Used to set the min-height of `div.slide-for-more-content` |
+| `baseSize`            | `String`                                  | `100px`           | Used to set size of content shadow and line-height of tip. The component style will crash when it's invalid. Tested by reg: /\d(rem&#124;px&#124;em)$/ |
 | `slideValue`          | `Number`                                  | `100` (px)        | Used to set min value of slide distance to trigger events |
 | `isSearching`         | `Boolean`                                 | `false`           | Used to tell the component whether you are searching or not. If you are searching, it will show the loading text. `This is an important prop` |
 
@@ -93,22 +125,4 @@ Use in html, see what your can use in [CDN: unpkg](https://unpkg.com/vue-slide-f
 | `loadMore`            | none                  | Event for load more                               | 
 | `slideUp`             | none                  | An alias of `loadMore` event                      |
 
-## style
-For building style, you can use the css or scss file in lib directory. 
-```js
-// scss
-import 'node_modules/vue-slide-for-more/lib/css/index.scss'
 
-// css
-import 'node_modules/vue-slide-for-more/lib/css/index.css'
-```
-Or
-```scss
-// scss
-@import 'node_modules/vue-slide-for-more/lib/css/index.scss';
-
-// css
-@import 'node_modules/vue-slide-for-more/lib/css/index.css';
-```
-
-Or, you can build your custom style by copying and editing `index.scss`

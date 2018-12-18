@@ -1,0 +1,58 @@
+$bg: #f5f5f5;
+$font: #ccc;
+$baseSize: .1rem;
+
+@function size($val: 1) {
+  @return $val * $baseSize
+}
+
+@mixin tipWrap($topOrBottom:top) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  #{$topOrBottom}: 0;
+  width: 100%;
+  color: $font;
+  overflow: hidden;
+}
+
+@mixin tip() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: $font;
+}
+
+.transition {
+  transition: all .5s cubic-bezier(.4, 0, .2, 1);
+}
+
+.slide-for-more-base-wrap {
+  position: relative;
+  background: #f5f5f5;
+  overflow: auto !important;
+
+  .slide-for-more-top-tip-wrap {
+    @include tipWrap();
+
+    .slide-for-more-top-tip {
+    }
+  }
+
+  .slide-for-more-content {
+    position: relative;
+    z-index: 2;
+    background: #fafafa;
+    box-shadow: 0 size(.2) size(.5) rgba(0, 0, 0, .05);
+  }
+
+  .slide-for-more-tip-wrap {
+    @include tipWrap(bottom);
+
+    .slide-for-more-tip {
+    }
+  }
+}

@@ -21,6 +21,7 @@ module.exports = {
       externalHelpers: false,
       presets: [
         ['env', { modules: false }],
+        'stage-2',
       ],
       plugins: [
         'external-helpers',

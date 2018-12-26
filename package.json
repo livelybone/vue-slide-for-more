@@ -1,6 +1,6 @@
 {
   "name": "vue-slide-for-more",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
@@ -54,6 +54,7 @@
     "rollup": "^0.65.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-license": "^0.7.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-uglify": "^5.0.2",
     "rollup-plugin-vue": "^4.3.2",
@@ -68,6 +69,5 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

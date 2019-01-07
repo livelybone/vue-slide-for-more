@@ -1,6 +1,6 @@
 {
   "name": "vue-slide-for-more",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/livelybone/vue-slide-for-more/issues"
   },
-  "homepage": "https://livelybone.github.io/vue/vue-slide-for-more",
+  "homepage": "https://livelybone.github.io/vue/vue-slide-for-more/",
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.19",
     "babel-core": "^6.26.3",

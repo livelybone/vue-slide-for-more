@@ -12,7 +12,7 @@ A vuejs(vue2) component for loading more data when the content was slide to the 
 https://github.com/livelybone/vue-slide-for-more.git
 
 ## Demo 
-https://livelybone.github.io/vue/vue-slide-for-more
+https://livelybone.github.io/vue/vue-slide-for-more/
 
 ## Installation
 ```bash

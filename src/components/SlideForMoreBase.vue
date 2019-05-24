@@ -1,25 +1,35 @@
 <template>
-  <div class="slide-for-more-base-wrap"
-       style="padding:0"
-       ref="wrap"
-       @touchstart="start"
-       @touchend="end"
-       @touchmove="move">
-    <div class="slide-for-more-top-tip-wrap"
-         :class="transition"
-         :style="tipWrap">
-      <slot name="topTip"/>
+  <div
+    class="slide-for-more-base-wrap"
+    style="padding:0"
+    ref="wrap"
+    @touchstart="start"
+    @touchend="end"
+    @touchmove="move"
+  >
+    <div
+      v-show="showUpTip"
+      class="slide-for-more-top-tip-wrap"
+      :class="transition"
+      :style="tipWrap"
+    >
+      <slot name="topTip" />
     </div>
-    <div class="slide-for-more-content"
-         :class="transition"
-         :style="contentStyle"
-         ref="content">
-      <slot/>
+    <div
+      class="slide-for-more-content"
+      :class="transition"
+      :style="contentStyle"
+      ref="content"
+    >
+      <slot />
     </div>
-    <div class="slide-for-more-tip-wrap"
-         :class="transition"
-         :style="bottomTipWrap">
-      <slot name="tip"/>
+    <div
+      v-show="showBottomTip"
+      class="slide-for-more-tip-wrap"
+      :class="transition"
+      :style="bottomTipWrap"
+    >
+      <slot name="tip" />
     </div>
   </div>
 </template>
@@ -58,10 +68,17 @@ export default {
     cHeight() {
       return this.height ? `${Math.abs(+this.height)}px` : this.tipHeight
     },
+    showUpTip() {
+      return this.height < 0 || (this.isSearching && this.type === 'slideDown')
+    },
+    showBottomTip() {
+      return this.height > 0 || (this.isSearching && this.type === 'slideUp')
+    },
     tipWrap() {
+      if (!this.showUpTip) return { opacity: 0 }
       return {
         height: this.cHeight,
-        opacity: this.height < 0 || this.isSearching ? 1 : 0,
+        opacity: 1,
         bottom: `${this.bottom}px`,
       }
     },
@@ -70,9 +87,10 @@ export default {
       return Math.min(0, wrap - content)
     },
     bottomTipWrap() {
+      if (!this.showBottomTip) return { opacity: 0 }
       return {
         height: this.cHeight,
-        opacity: this.height > 0 || this.isSearching ? 1 : 0,
+        opacity: 1,
         bottom: `${this.bottom}px`,
       }
     },

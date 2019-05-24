@@ -1,7 +1,7 @@
 # vue-slide-for-more
 [![NPM Version](http://img.shields.io/npm/v/vue-slide-for-more.svg?style=flat-square)](https://www.npmjs.com/package/vue-slide-for-more)
 [![Download Month](http://img.shields.io/npm/dm/vue-slide-for-more.svg?style=flat-square)](https://www.npmjs.com/package/vue-slide-for-more)
-![gzip with dependencies: 1.6kb](https://img.shields.io/badge/gzip--with--dependencies-1.6kb-brightgreen.svg "gzip with dependencies: 1.6kb")
+![gzip with dependencies: 1.8kb](https://img.shields.io/badge/gzip--with--dependencies-1.8kb-brightgreen.svg "gzip with dependencies: 1.6kb")
 ![pkg.module](https://img.shields.io/badge/pkg.module-supported-blue.svg "pkg.module")
 
 > `pkg.module supported`, which means that you can apply tree-shaking in you project

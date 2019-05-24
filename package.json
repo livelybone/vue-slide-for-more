@@ -1,6 +1,6 @@
 {
   "name": "vue-slide-for-more",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "A vuejs(vue2) component for loading more data when the content was slide to the bottom on mobile, provided refresh function, supported SSR",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
@@ -9,7 +9,9 @@
     "build:css": "node-sass ./src/css/index.scss ./lib/css/index.css --output-style compressed",
     "build": "rimraf ./lib && npm run build:css && rollup -c",
     "eslint": "eslint ./src/index.vue",
-    "test": "cross-env BABEL_ENV=test karma start --single-run"
+    "test": "cross-env BABEL_ENV=test karma start --single-run",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,10 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
+    "commitizen": "^3.0.7",
+    "conventional-changelog-cli": "^2.0.12",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
@@ -51,13 +57,13 @@
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^3.0.0",
     "mocha": "^5.2.0",
-    "rollup": "^0.65.1",
+    "rollup": "^1.12.3",
     "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-license": "^0.7.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-uglify": "^5.0.2",
-    "rollup-plugin-vue": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-license": "^0.8.1",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-vue": "^5.0.0",
     "vue": "^2.5.16",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
@@ -69,5 +75,10 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

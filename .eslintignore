@@ -1,6 +1,11 @@
 # /node_modules/* and /bower_components/* in the project root are ignored by default
 
+/coverage/
+/node_modules/
 /lib/
+/test/
+
+**/*.ts
 
 **/*.spec.js
 **/*.test.js

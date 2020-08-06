@@ -1,39 +1,51 @@
-/* For build */
-const babel = require('rollup-plugin-babel')
 const commonjs = require('rollup-plugin-commonjs')
 const resolve = require('rollup-plugin-node-resolve')
 const vuePlugin = require('rollup-plugin-vue')
-const license = require('rollup-plugin-license')
+const babel = require('rollup-plugin-babel')
+const { DEFAULT_EXTENSIONS } = require('@babel/core')
+
+const isWatch = process.env.BUILD_ENV === 'watch'
 
 const vue = vuePlugin.default || vuePlugin
 
 module.exports = {
-  output: {
-    format: 'umd',
-  },
-  external: [],
   plugins: [
-    resolve(),
+    ...(isWatch
+      ? [
+          {
+            name: 'replace',
+            transform(code) {
+              return {
+                code: code.replace(
+                  /process\.env\.NODE_ENV/g,
+                  JSON.stringify('production'),
+                ),
+              }
+            },
+          },
+        ]
+      : []),
+    resolve({
+      extensions: [...DEFAULT_EXTENSIONS, '.vue'],
+    }),
     commonjs(),
     vue({ css: true }),
     babel({
       babelrc: false,
-      runtimeHelpers: true,
       externalHelpers: false,
+      runtimeHelpers: true,
+      extensions: [...DEFAULT_EXTENSIONS, '.vue'],
       presets: [
-        ['env', { modules: false }],
-        'stage-2',
+        [
+          '@babel/preset-env',
+          {
+            modules: false,
+            targets: {
+              browsers: ['> 1%', 'last 2 versions', 'not ie <= 8'],
+            },
+          },
+        ],
       ],
-      plugins: [
-        'external-helpers',
-      ],
-    }),
-    license({
-      banner: `Bundle of <%= pkg.name %>
-               Generated: <%= moment().format('YYYY-MM-DD') %>
-               Version: <%= pkg.version %>
-               License: <%= pkg.license %>
-               Author: <%= pkg.author %>`,
     }),
   ],
 }

@@ -5,6 +5,15 @@
   <title>vue-slide-for-more</title>
   <meta name="keywords" content="livelybone, plugins, vue, vuejs, react, js, javascript, node, php">
   <meta name="author" content="livelybone(2631541504@qq.com)">
+
+  <!-- Inject some babel helpers for code running. it is not needed in a real babel project when you configure babel or there is no new feature of js -->
+  <!-- 为代码运行注入一些babel帮助函数。在真正的babel项目中，当已配置 babel 时，或者js没有新特性时，并不需要它 -->
+  <script src="https://cdn.jsdelivr.net/npm/@babel/polyfill/dist/polyfill.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" crossorigin></script>
+  <!-- china region: If your example running slow at begin, please try to use the follow CDN -->
+  <!-- <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js" crossorigin></script> -->
+
   <script>
   function isMobile() {
     return /Android|webOS|iPhone|iPod|iPad|BlackBerry|Windows Phone/i.test(navigator.userAgent)
@@ -28,7 +37,6 @@
 
   scale(/noScale/i.test(location.href))
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="../lib/umd/index.js"></script>
   <link href="../lib/css/index.css" rel="stylesheet">
   <style type="text/css">

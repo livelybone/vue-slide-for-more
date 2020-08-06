@@ -1,21 +1,29 @@
 module.exports = {
-  parserOptions: {
-    parser: 'babel-eslint',
+  'parserOptions': {
+    'parser': 'babel-eslint',
   },
-  plugins: [
-    'vue'
+  'plugins': [
+    'vue',
+    'prettier'
   ],
-  'extends': ['plugin:vue/essential', 'airbnb-base'],
-  rules: {
-    // allow debugger during development
-    'quote-props': [2, 'consistent'],
-    'import/prefer-default-export': [0],
-    'linebreak-style': 'off',
-    'global-require': 'off',
-    'object-shorthand': [2, 'always', { avoidQuotes: false }],
-    'object-curly-newline': 'off',
-    'camelcase': 'off',
-    'no-mixed-operators':'off',
-    'semi': 'off'
+  'extends': [
+    'airbnb-base',
+    'plugin:vue/essential',
+    'plugin:prettier/recommended',
+  ],
+  'rules': {
+    'no-useless-constructor': 0,
+    'no-undef': 0,
+    'import/prefer-default-export': 0,
+    'prettier/prettier': 2,
+    'no-console': [2, { allow: ["warn", "error"] }],
+    'no-shadow': 2,
   },
-};
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', 'jsx', '.vue'],
+      },
+    },
+  },
+}

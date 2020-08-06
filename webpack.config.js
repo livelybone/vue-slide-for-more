@@ -1,26 +1,9 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const path = require('path');
-const fs = require('fs');
-
-function getEntries() {
-  const reg = /\.vue$/;
-  return fs.readdirSync(path.resolve(__dirname, './src/components'))
-    .filter(filename => reg.test(filename) && !fs.statSync(path.resolve(__dirname, './src/components', filename)).isDirectory())
-    .map(filename => ({ [filename.replace(reg, '')]: path.resolve(__dirname, './src/components', filename) }));
-}
-
-const entries = getEntries();
+/* For test */
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const config = {
   mode: 'production',
-  entry: Object.assign({ index: './src/index.js' }, ...entries),
-  output: {
-    path: path.resolve(__dirname, './lib'),
-    filename: './[name].js',
-    library: 'VueSlideForMore',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-  },
+  entry: { index: './src/index.js' },
   module: {
     rules: [
       { test: /\.vue$/, exclude: /node_modules/, loader: 'vue-loader' },
@@ -30,25 +13,22 @@ const config = {
         loader: 'babel-loader',
         options: {
           presets: [
-            ['env', {
-              modules: false,
-              targets: {
-                browsers: ['> 1%', 'last 2 versions', 'not ie <= 8']
+            [
+              '@babel/preset-env',
+              {
+                modules: false,
+                targets: {
+                  browsers: ['> 1%', 'last 2 versions', 'not ie <= 8'],
+                },
               },
-            }],
+            ],
           ],
-          env: {
-            test: {
-              plugins: ['istanbul'],
-            },
-          },
+          plugins: ['@babel/plugin-transform-runtime', 'istanbul'],
         },
       },
     ],
   },
-  plugins: [
-    new VueLoaderPlugin(),
-  ],
-};
+  plugins: [new VueLoaderPlugin()],
+}
 
-module.exports = config;
+module.exports = config
